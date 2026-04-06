@@ -236,8 +236,7 @@
 <body>
   <header class="masthead">
     <div class="masthead-left">
-      <img src="https://d36jn9qou1tztq.cloudfront.net/static_war/render/id7/images/wordmark.svg.136055278947"
-           alt="University of Warwick">
+      <img src="assets/warwick-wordmark-white.svg" alt="University of Warwick">
       <div class="masthead-divider"></div>
       <span class="masthead-title">CS310 Final Report</span>
       <span class="masthead-meta">Alex Do &middot; April 2026</span>
@@ -317,17 +316,25 @@
       container.innerHTML = '';
       pages = [];
 
+      const dpr = window.devicePixelRatio || 1;
+
       for (let i = 1; i <= pdfDoc.numPages; i++) {
         const page     = await pdfDoc.getPage(i);
         const viewport = page.getViewport({ scale });
         const canvas   = document.createElement('canvas');
         const ctx      = canvas.getContext('2d');
-        canvas.width   = viewport.width;
-        canvas.height  = viewport.height;
+
+        // Render at full device resolution
+        const hiResViewport = page.getViewport({ scale: scale * dpr });
+        canvas.width  = hiResViewport.width;
+        canvas.height = hiResViewport.height;
+        canvas.style.width  = viewport.width + 'px';
+        canvas.style.height = viewport.height + 'px';
+
         canvas.dataset.page = i;
         container.appendChild(canvas);
         pages.push(canvas);
-        await page.render({ canvasContext: ctx, viewport }).promise;
+        await page.render({ canvasContext: ctx, viewport: hiResViewport }).promise;
       }
       rendering = false;
       zoomLabel.textContent = `${Math.round(scale / 1.5 * 100)}%`;

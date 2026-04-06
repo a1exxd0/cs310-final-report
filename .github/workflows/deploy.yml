@@ -33,6 +33,8 @@ jobs:
         run: |
           mkdir _site
           cp main.pdf index.html _site/
+          mkdir _site/assets
+          cp assets/warwick-wordmark-white.svg _site/assets/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
