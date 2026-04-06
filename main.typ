@@ -50,15 +50,17 @@
 #counter(page).update(1)
 
 #include "chapters/introduction.typ"
-#include "chapters/background.typ"
-#include "chapters/methodology.typ"
-#include "chapters/evaluation.typ"
-#include "chapters/conclusion.typ"
+#include "chapters/background/base.typ"
+#include "chapters/mos/base.typ"
+#include "chapters/implementation/base.typ"
+#include "chapters/experiments/base.typ"
+#include "chapters/discussion/base.typ"
+#include "chapters/conclusions.typ"
 
 // ── Appendices ──────────────────────────────────────────────────────
 #counter(heading).update(0)
 #set heading(numbering: "A.1")
-#include "chapters/appendix-circuits.typ"
+#include "chapters/appendices/appendix-circuits.typ"
 
 // ── Bibliography ─────────────────────────────────────────────────────
 #bibliography("bibliography.bib", style: "ieee")
