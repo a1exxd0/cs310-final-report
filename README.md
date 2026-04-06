@@ -7,8 +7,6 @@
 
 # CS310 Final Report
 
-A clean, academic report template built with [Typst](https://typst.app/), featuring title pages, table of contents, theorem environments, and appendix support.
-
 </div>
 
 ### Prerequisites
