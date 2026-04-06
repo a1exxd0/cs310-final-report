@@ -3,48 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3C1053">
   <title>Alex Do — CS310 Final Report</title>
+  <link rel="icon" type="image/png" sizes="32x32"
+        href="https://d36jn9qou1tztq.cloudfront.net/static_war/render/id7/images/favicon-32x32.png.316569982511">
+  <link rel="apple-touch-icon" sizes="180x180"
+        href="https://d36jn9qou1tztq.cloudfront.net/static_war/render/id7/images/apple-touch-icon-180x180.png.165120660824">
+  <link rel="stylesheet" href="https://use.typekit.net/iog2qgq.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --nav-height: 56px;
-      --bg: #f5f5f7;
-      --nav-bg: #1d1d1f;
-      --nav-text: #f5f5f7;
-      --accent: #6e56cf;
-      --accent-hover: #7c66d4;
+      --masthead: #3C1053;
+      --masthead-light: #5c2d82;
+      --lavender-300: #9b7fc4;
+      --bg: #f4f3f1;
+      --page-shadow: 0 2px 8px rgba(0,0,0,.18);
+      --toolbar-height: 44px;
+      --masthead-height: 54px;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: "aktiv-grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
-    nav {
-      height: var(--nav-height);
-      background: var(--nav-bg);
-      color: var(--nav-text);
+    /* ── Masthead ─────────────────────────────────────────────────── */
+    .masthead {
+      height: var(--masthead-height);
+      background: var(--masthead);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 20px;
       flex-shrink: 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,.25);
-      z-index: 10;
+      z-index: 20;
     }
 
-    .nav-left {
+    .masthead-left {
       display: flex;
-      align-items: baseline;
-      gap: 12px;
+      align-items: center;
+      gap: 16px;
       min-width: 0;
     }
 
-    .nav-title {
+    .masthead-left img {
+      height: 24px;
+      display: block;
+    }
+
+    .masthead-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,.3);
+      flex-shrink: 0;
+    }
+
+    .masthead-title {
       font-size: 15px;
       font-weight: 600;
       white-space: nowrap;
@@ -52,103 +72,313 @@
       text-overflow: ellipsis;
     }
 
-    .nav-author {
+    .masthead-meta {
       font-size: 13px;
-      opacity: .6;
+      opacity: .65;
       white-space: nowrap;
+    }
+
+    /* ── Toolbar ──────────────────────────────────────────────────── */
+    .toolbar {
+      height: var(--toolbar-height);
+      background: #2a1240;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 15;
+      font-size: 13px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .toolbar-sep {
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,.2);
+      margin: 0 8px;
+    }
+
+    .toolbar button {
+      background: none;
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      border-radius: 4px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .12s;
+      font-size: 14px;
+    }
+
+    .toolbar button:hover { background: rgba(255,255,255,.12); }
+    .toolbar button:disabled { opacity: .35; cursor: default; }
+    .toolbar button:disabled:hover { background: none; }
+
+    .toolbar .page-info {
+      min-width: 80px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .toolbar .page-input {
+      width: 44px;
+      text-align: center;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 4px;
+      color: #fff;
+      font-size: 13px;
+      padding: 4px 2px;
+      font-family: inherit;
+    }
+
+    .toolbar .page-input:focus {
+      outline: none;
+      border-color: var(--lavender-300);
+      background: rgba(255,255,255,.18);
+    }
+
+    .toolbar .zoom-label {
+      min-width: 44px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
     }
 
     .btn-download {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: var(--accent);
+      gap: 5px;
+      background: var(--masthead-light);
+      border: 1px solid rgba(255,255,255,.2);
       color: #fff;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
-      padding: 7px 16px;
-      border-radius: 6px;
-      transition: background .15s;
-      flex-shrink: 0;
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: background .12s;
+      font-family: inherit;
+      cursor: pointer;
     }
 
-    .btn-download:hover { background: var(--accent-hover); }
+    .btn-download:hover { background: #7a3fa8; }
 
     .btn-download svg {
-      width: 14px;
-      height: 14px;
+      width: 13px;
+      height: 13px;
       fill: currentColor;
     }
 
-    .viewer {
+    /* ── PDF container ────────────────────────────────────────────── */
+    .pdf-container {
       flex: 1;
-      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      gap: 20px;
     }
 
-    .viewer embed {
-      width: 100%;
-      height: 100%;
-      border: none;
+    .pdf-container canvas {
+      box-shadow: var(--page-shadow);
+      max-width: 100%;
+      height: auto !important;
     }
 
-    .fallback {
-      display: none;
+    /* ── Loading / Error ──────────────────────────────────────────── */
+    .status {
       flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 48px 24px;
       color: #555;
+      padding: 48px 24px;
+      font-size: 15px;
     }
 
-    .fallback p { margin-bottom: 16px; font-size: 15px; }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--lavender-300);
+      border-top-color: var(--masthead);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 16px;
+    }
 
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
     @media (max-width: 600px) {
-      nav { padding: 0 14px; }
-      .nav-author { display: none; }
+      .masthead { padding: 0 12px; }
+      .masthead-meta { display: none; }
+      .masthead-title { font-size: 14px; }
+      .pdf-container { padding: 12px 8px; gap: 12px; }
+      .toolbar { gap: 3px; padding: 0 8px; }
+      .toolbar-sep { margin: 0 4px; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-left">
-      <span class="nav-title">CS310 Final Report</span>
-      <span class="nav-author">Alex Do &middot; April 2026</span>
+  <header class="masthead">
+    <div class="masthead-left">
+      <img src="https://d36jn9qou1tztq.cloudfront.net/static_war/render/id7/images/wordmark.svg.136055278947"
+           alt="University of Warwick">
+      <div class="masthead-divider"></div>
+      <span class="masthead-title">CS310 Final Report</span>
+      <span class="masthead-meta">Alex Do &middot; April 2026</span>
     </div>
     <a class="btn-download" href="main.pdf" download>
       <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
-      Download PDF
+      PDF
     </a>
-  </nav>
+  </header>
 
-  <div class="viewer" id="viewer">
-    <embed src="main.pdf" type="application/pdf" />
-  </div>
-
-  <div class="fallback" id="fallback">
-    <div>
-      <p>Your browser doesn't support embedded PDFs.</p>
-      <a class="btn-download" href="main.pdf" download>
-        <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
-        Download PDF
-      </a>
+  <div class="toolbar" id="toolbar" style="display:none">
+    <div class="toolbar-group">
+      <button id="prev" title="Previous page">&#9664;</button>
+      <input class="page-input" id="pageInput" type="text" value="1" title="Go to page">
+      <span class="page-info" id="pageInfo">/ 1</span>
+      <button id="next" title="Next page">&#9654;</button>
+    </div>
+    <div class="toolbar-sep"></div>
+    <div class="toolbar-group">
+      <button id="zoomOut" title="Zoom out">&minus;</button>
+      <span class="zoom-label" id="zoomLabel">100%</span>
+      <button id="zoomIn" title="Zoom in">+</button>
     </div>
   </div>
 
-  <script>
-    // Fallback for browsers that can't render PDF inline (mainly mobile)
-    const embed = document.querySelector('.viewer embed');
-    embed.addEventListener('error', () => {
-      document.getElementById('viewer').style.display = 'none';
-      document.getElementById('fallback').style.display = 'flex';
+  <div class="status" id="loading">
+    <div><div class="spinner"></div>Loading report&hellip;</div>
+  </div>
+
+  <div class="pdf-container" id="pdfContainer" style="display:none"></div>
+
+  <script type="module">
+    const { GlobalWorkerOptions, getDocument } = await import(
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs'
+    );
+    GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs';
+
+    const container = document.getElementById('pdfContainer');
+    const loading   = document.getElementById('loading');
+    const toolbar   = document.getElementById('toolbar');
+    const pageInput = document.getElementById('pageInput');
+    const pageInfo  = document.getElementById('pageInfo');
+    const zoomLabel = document.getElementById('zoomLabel');
+
+    let pdfDoc  = null;
+    let scale   = 1.5;
+    let pages   = [];     // canvas elements
+    let rendering = false;
+
+    const SCALE_STEP = 0.25;
+    const SCALE_MIN  = 0.5;
+    const SCALE_MAX  = 4;
+
+    // ── Load PDF ───────────────────────────────────────────────────
+    try {
+      pdfDoc = await getDocument('main.pdf').promise;
+    } catch (e) {
+      loading.innerHTML =
+        `<div><p>Could not load the PDF.</p>
+         <a class="btn-download" href="main.pdf" download style="margin-top:12px">
+           <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
+           Download PDF
+         </a></div>`;
+      throw e;
+    }
+
+    pageInfo.textContent = `/ ${pdfDoc.numPages}`;
+    loading.style.display = 'none';
+    container.style.display = 'flex';
+    toolbar.style.display = 'flex';
+
+    // ── Render all pages ───────────────────────────────────────────
+    async function renderAll() {
+      if (rendering) return;
+      rendering = true;
+      container.innerHTML = '';
+      pages = [];
+
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        const page     = await pdfDoc.getPage(i);
+        const viewport = page.getViewport({ scale });
+        const canvas   = document.createElement('canvas');
+        const ctx      = canvas.getContext('2d');
+        canvas.width   = viewport.width;
+        canvas.height  = viewport.height;
+        canvas.dataset.page = i;
+        container.appendChild(canvas);
+        pages.push(canvas);
+        await page.render({ canvasContext: ctx, viewport }).promise;
+      }
+      rendering = false;
+      zoomLabel.textContent = `${Math.round(scale / 1.5 * 100)}%`;
+    }
+
+    await renderAll();
+
+    // ── Page navigation (scroll-based) ─────────────────────────────
+    function currentPage() {
+      const top = container.scrollTop + container.offsetTop + 40;
+      for (let i = pages.length - 1; i >= 0; i--) {
+        if (pages[i].offsetTop <= top) return i + 1;
+      }
+      return 1;
+    }
+
+    container.addEventListener('scroll', () => {
+      pageInput.value = currentPage();
     });
 
-    // Also detect mobile, where embed rarely works
-    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      document.getElementById('viewer').style.display = 'none';
-      document.getElementById('fallback').style.display = 'flex';
+    function scrollToPage(num) {
+      const clamped = Math.max(1, Math.min(num, pdfDoc.numPages));
+      pageInput.value = clamped;
+      pages[clamped - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    document.getElementById('prev').addEventListener('click', () => scrollToPage(currentPage() - 1));
+    document.getElementById('next').addEventListener('click', () => scrollToPage(currentPage() + 1));
+    pageInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const num = parseInt(pageInput.value, 10);
+        if (!isNaN(num)) scrollToPage(num);
+      }
+    });
+
+    // ── Zoom ───────────────────────────────────────────────────────
+    document.getElementById('zoomIn').addEventListener('click', async () => {
+      if (scale >= SCALE_MAX) return;
+      const pg = currentPage();
+      scale = Math.min(scale + SCALE_STEP, SCALE_MAX);
+      await renderAll();
+      scrollToPage(pg);
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', async () => {
+      if (scale <= SCALE_MIN) return;
+      const pg = currentPage();
+      scale = Math.max(scale - SCALE_STEP, SCALE_MIN);
+      await renderAll();
+      scrollToPage(pg);
+    });
   </script>
 </body>
 </html>
