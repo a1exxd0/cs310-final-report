@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Do — CS310 Final Report</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --nav-height: 56px;
+      --bg: #f5f5f7;
+      --nav-bg: #1d1d1f;
+      --nav-text: #f5f5f7;
+      --accent: #6e56cf;
+      --accent-hover: #7c66d4;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      height: var(--nav-height);
+      background: var(--nav-bg);
+      color: var(--nav-text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.25);
+      z-index: 10;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .nav-title {
+      font-size: 15px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-author {
+      font-size: 13px;
+      opacity: .6;
+      white-space: nowrap;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 6px;
+      transition: background .15s;
+      flex-shrink: 0;
+    }
+
+    .btn-download:hover { background: var(--accent-hover); }
+
+    .btn-download svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .viewer {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .viewer embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .fallback {
+      display: none;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      color: #555;
+    }
+
+    .fallback p { margin-bottom: 16px; font-size: 15px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 14px; }
+      .nav-author { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <span class="nav-title">CS310 Final Report</span>
+      <span class="nav-author">Alex Do &middot; April 2026</span>
+    </div>
+    <a class="btn-download" href="main.pdf" download>
+      <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
+      Download PDF
+    </a>
+  </nav>
+
+  <div class="viewer" id="viewer">
+    <embed src="main.pdf" type="application/pdf" />
+  </div>
+
+  <div class="fallback" id="fallback">
+    <div>
+      <p>Your browser doesn't support embedded PDFs.</p>
+      <a class="btn-download" href="main.pdf" download>
+        <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
+        Download PDF
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Fallback for browsers that can't render PDF inline (mainly mobile)
+    const embed = document.querySelector('.viewer embed');
+    embed.addEventListener('error', () => {
+      document.getElementById('viewer').style.display = 'none';
+      document.getElementById('fallback').style.display = 'flex';
+    });
+
+    // Also detect mobile, where embed rarely works
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.getElementById('viewer').style.display = 'none';
+      document.getElementById('fallback').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

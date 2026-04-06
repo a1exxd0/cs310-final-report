@@ -1,2 +1,5 @@
 # Macos metadata
 .DS_Store
+
+# Compiled output
+main.pdf
