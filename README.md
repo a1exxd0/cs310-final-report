@@ -3,7 +3,7 @@
 [![Typst](https://img.shields.io/badge/Built_with-Typst-239dad)](https://typst.app/)
 [![Stars](https://img.shields.io/github/stars/a1exxd0/cs310-final-report)](https://github.com/a1exxd0/cs310-final-report/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/a1exxd0/cs310-final-report)](https://github.com/a1exxd0/cs310-final-report/commits)
-[![License: MIT](https://img.shields.io/github/license/a1exxd0/cs310-final-report)](LICENSE)
+[![License](https://img.shields.io/badge/License-Custom-blue)](LICENSE)
 
 # CS310 Final Report
 
