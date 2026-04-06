@@ -1,10 +1,10 @@
-#import "template.typ": report, theorem, definition, proof
+#import "template.typ": definition, proof, report, theorem
 
 #show: report.with(
-  title: [A nonsensical template with some notes on\ quantum learning],
+  title: [TODO: derive a title],
   author: "Alex Do",
-  student-id: "2100000",
-  supervisor: "Dr. Jane Smith",
+  student-id: "5505454",
+  supervisor: "Dr. Matthias Caro",
   date: "April 2026",
 )
 

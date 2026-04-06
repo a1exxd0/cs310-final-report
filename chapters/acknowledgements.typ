@@ -5,7 +5,7 @@
     #text(size: 17pt, weight: "bold")[Acknowledgements]
     #v(0.5em)
 
-    I would like to thank my supervisor for their continued guidance throughout this project.
+    TODO: derive acknowledgements
   ]
 ]
 #v(1fr)
