@@ -108,9 +108,8 @@
   )[
     #align(left)[
       *Theorem #context {
-        let chapter = counter(heading.where(level: 1)).display()
         let num = counter(figure.where(kind: "theorem")).display()
-        [#chapter.#num]
+        [#num]
       }#if name != none [
         (#name)]*.
       #emph(body)
@@ -129,9 +128,8 @@
   )[
     #align(left)[
       *Definition #context {
-        let chapter = counter(heading.where(level: 1)).display()
         let num = counter(figure.where(kind: "definition")).display()
-        [#chapter.#num]
+        [#num]
       }#if name != none [
         (#name)]*. #body
     ]
