@@ -99,32 +99,35 @@
 }
 
 // ── Theorem environments ───────────────────────────────────────────
-#let theorem-counter = counter("theorem")
-#let definition-counter = counter("definition")
-
-#let theorem(body, name: none) = {
-  theorem-counter.step()
+#let theorem(body, name: none) = figure(
   block(
     width: 100%,
     inset: 10pt,
     stroke: (left: 2pt + luma(80)),
     fill: luma(245),
   )[
-    *Theorem #context theorem-counter.display()#if name != none [ (#name)]*. #emph(body)
-  ]
-}
+    *Theorem #context counter(figure.where(kind: "theorem")).display()#if name != none [ (#name)]*.
+    #emph(body)
+  ],
+  kind: "theorem",
+  supplement: "Theorem",
+  numbering: "1.",
+)
 
-#let definition(body, name: none) = {
-  definition-counter.step()
+#let definition(body, name: none) = figure(
   block(
     width: 100%,
     inset: 10pt,
     stroke: (left: 2pt + luma(140)),
     fill: luma(250),
   )[
-    *Definition #context definition-counter.display()#if name != none [ (#name)]*. #body
-  ]
-}
+    *Definition #context counter(figure.where(kind: "definition")).display()#if name != none [
+      (#name)]*. #body
+  ],
+  kind: "definition",
+  supplement: "Definition",
+  numbering: "1.",
+)
 
 #let proof(body) = {
   [_Proof._ #body #h(1fr) $square$]
