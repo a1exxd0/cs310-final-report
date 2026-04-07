@@ -106,12 +106,18 @@
     stroke: (left: 2pt + luma(80)),
     fill: luma(245),
   )[
-    *Theorem #context counter(figure.where(kind: "theorem")).display()#if name != none [ (#name)]*.
-    #emph(body)
+    #align(left)[
+      *Theorem #context {
+        let chapter = counter(heading.where(level: 1)).display()
+        let num = counter(figure.where(kind: "theorem")).display()
+        [#chapter.#num]
+      }#if name != none [
+        (#name)]*.
+      #emph(body)
+    ]
   ],
   kind: "theorem",
   supplement: "Theorem",
-  numbering: "1.",
 )
 
 #let definition(body, name: none) = figure(
@@ -121,13 +127,24 @@
     stroke: (left: 2pt + luma(140)),
     fill: luma(250),
   )[
-    *Definition #context counter(figure.where(kind: "definition")).display()#if name != none [
-      (#name)]*. #body
+    #align(left)[
+      *Definition #context {
+        let chapter = counter(heading.where(level: 1)).display()
+        let num = counter(figure.where(kind: "definition")).display()
+        [#chapter.#num]
+      }#if name != none [
+        (#name)]*. #body
+    ]
   ],
   kind: "definition",
   supplement: "Definition",
-  numbering: "1.",
 )
+
+#show heading.where(level: 1): it => {
+  counter(figure.where(kind: "theorem")).update(0)
+  counter(figure.where(kind: "definition")).update(0)
+  it
+}
 
 #let proof(body) = {
   [_Proof._ #body #h(1fr) $square$]
