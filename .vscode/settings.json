@@ -2,5 +2,8 @@
     "[typst]": {
         "editor.formatOnSave": true
     },
-    "tinymist.projectResolution": "lockDatabase"
+    "tinymist.projectResolution": "lockDatabase",
+    "tinymist.formatterMode": "typstyle",
+    "tinymist.formatterPrintWidth": 100,
+    "tinymist.formatterProseWrap": true
 }

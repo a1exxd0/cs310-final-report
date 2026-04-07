@@ -1,4 +1,3 @@
-== Verifying Quantum Computation <sec:verifying-qc>
+== Verifying Quantum Computations <sec:verifying-qc>
 
-=== Interactive Proofs and the QPIP model <sec:ip-qpip>
 
