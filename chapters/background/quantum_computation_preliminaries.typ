@@ -16,19 +16,13 @@ a complex vector space equipped with an inner product.
   conjugate transpose of its corresponding ket: $chevron.l phi.alt| = (|phi.alt chevron.r)^dagger$.
 ]
 
-#definition(name: "Inner product")[
-  The inner product $chevron.l phi|psi chevron.r$ of two states $|phi chevron.r comma |psi chevron.r in cal(H)$
-  yields a scalar in $bb(C)$.
-]
-
-#definition(name: "Outer product")[
-  The outer product $|phi chevron.r chevron.l psi|$ is the rank-1 linear operator on $cal(H)$ defined by its
-  action on an arbitrary state $|chi chevron.r in cal(H)$:
-  #math.equation(
-    block: true,
-    numbering: none,
-  )[$ |phi chevron.r chevron.l psi|)|chi chevron.r = chevron.l psi|chi chevron.r |phi chevron.r $]
-]
+The inner product $chevron.l phi|psi chevron.r$ of two states $|phi chevron.r comma |psi chevron.r in cal(H)$
+yields a scalar in $bb(C)$. The outer product $|phi chevron.r chevron.l psi|$ is the rank-1 linear operator
+on $cal(H)$ defined by its action on an arbitrary state $|chi chevron.r in cal(H)$:
+#math.equation(
+  block: true,
+  numbering: none,
+)[$ |phi chevron.r chevron.l psi|)|chi chevron.r = chevron.l psi|chi chevron.r |phi chevron.r $]
 
 === Qubits and State Vectors
 
@@ -97,37 +91,136 @@ A general $n$-qubit pure state takes the form:
   $
 ]
 
-In the protocol of @ch:implementation, the prover prepares $(n + 1)$-qubit registers: $n$ qubits encoding the input domain ${0, 1}^n$ and one ancilla qubit used for postselection (see @sec:measurement).
+In the protocol of @ch:implementation, the prover prepares $(n + 1)$-qubit registers: $n$ qubits
+encoding the input domain ${0, 1}^n$ and one ancilla qubit used for postselection (see @sec:measurement).
 
 === Quantum Gates
 
+A quantum gate acting on $k$ qubits is a $2^k times 2^k$ unitary matrix $U$ (where $U^dagger U = bb(I)$).
+Unitarity guarantees that gate application preserves the normalisation condition and is reversible. We
+introduce only the gates that appear in the verification protocol.
+
+*Pauli-X gate.*
+The Pauli-X gate is the quantum analogue of a classical _NOT_ gate, applied to a single qubit and swapping $|0 chevron.r <-> |1 chevron.r$:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    X = mat(0, 1; 1, 0)
+  $
+]
+
+*Hadamard gate.*
+The Hadamard gate maps computational basis states to uniform superpositions over a single qubit:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    H = 1/sqrt(2) mat(1, 1; 1, -1)
+  $
+]
+
+Its action on the computational basis is, for $b in {0, 1}$:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    H|b chevron.r = 1/sqrt(2) sum_(y in {0, 1}) (-1)^(b dot y) |y chevron.r
+  $
+]
+
+*$n$-fold Hadamard.* Applying $H$ independently to each of $n$ qubits yields $H^(times.o n)$, which acts on
+computational basis states as:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    H^(times.o n)|x chevron.r = 1/sqrt(2^n) sum_(y in {0, 1}^n) (-1)^(x dot y) |y chevron.r
+  $
+]
+
+Where $x dot y = plus.o.big_(i=1)^n x_i y_i$ denotes the bitwise inner product modulo 2. This is the discrete
+analogue of the Fourier transform over $bb(F)^n_2$ and is central to the Quantum Fourier Sampling (QFS) subroutine
+in @sec:fourier-analysis.
+
+*Multi-controlled-X (MCX) Gate.* The MCX gate flips a designated target qubit if and only if all $n$ control qubits are in state $|1 chevron.r$. In this protocol, MCX gates are used within an oracle $U_f$ that encodes a boolean function $f: {0, 1}^n -> {0, 1}$ via:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    U_f|x chevron.r|b chevron.r = |x chevron.r|b plus.o f(x) chevron.r
+  $
+]
+
+The MCX gate is central to the implementation we provide in @ch:implementation.
+
 === Measurement <sec:measurement>
 
+#definition(name: "Born rule")[
+  The fundamental measurement postulate states that measuring an $n$-qubit state $|psi chevron.r = sum_x a_x|x chevron.r$ yields outcome $x in {0, 1}^n$ with probability:
 
-// TODO: ~250 words. Only material needed to understand the protocol circuits.
-// Audience: final-year UG, no quantum knowledge, elementary LA assumed.
+  #math.equation(
+    block: true,
+    numbering: none,
+  )[
+    $
+      bb(P)["outcome" x] = |a_x|^2
+    $
+  ]
 
-// - Qubits and state vectors: qubit as unit vector in C^2, computational basis
-//   {|0>, |1>}, superposition α|0> + β|1> with |α|^2 + |β|^2 = 1.
-//   Frame via LA: column vectors, inner products.
-//
-// - Multi-qubit systems: tensor product (C^2)^{⊗n}, computational basis
-//   {|x> : x ∈ {0,1}^n}, dimension 2^n. Needed because the protocol operates
-//   on (n+1)-qubit registers.
-//
-// - Quantum gates: unitary matrices. Only the gates the protocol uses:
-//   Pauli-X, Hadamard H, and the n-fold Hadamard H^{⊗n}. Give the 2×2 matrix
-//   for H explicitly. MCX too.
-//
-// - Measurement: Born rule — measuring Σ_x α_x|x> in the computational basis
-//   yields outcome x with probability |α_x|^2, collapsing the state.
-//   This is the mechanism behind postselection in the MoS protocol.
-//
-// - Partial measurement and postselection: measuring a subset of qubits,
-//   conditional state of remaining qubits. Brief definition of postselection
-//   (accepting only runs where a designated qubit yields a specific outcome).
-//   Directly needed for the MoS construction (b=1 postselection).
-//
-// - Forward pointer: the Hadamard transform H^{⊗n}|x> =
-//   1/√(2^n) Σ_s (-1)^{<s,x>}|s> connects quantum measurement probabilities
-//   to Fourier coefficients; this connection is developed in §2.4.
+  And the post-measurement state collapses to $|x chevron.r$.
+]
+
+When only a subset of $n$ qubits is measured, the remaining qubits are left in a conditional
+state determined by the measurement outcome. Consider an $(n + 1)$-qubit state written as:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    |psi chevron.r = sum_(x in {0, 1}^n) sum_(b in {0, 1}) alpha_(x, b) |x chevron.r |b chevron.r
+  $
+]
+
+Measuring the last qubit and obtaining outcome $b_0$ occurs with probability:
+
+#math.equation(
+  block: true,
+  numbering: none,
+)[
+  $
+    p_b_0 = sum_x |a_(x, b_0)|^2
+  $
+]
+
+And the conditional (post-measurement) state of the first $n$-qubits is:
+
+#math.equation(
+  block: true,
+)[
+  $
+    |psi_b_0 chevron.r = 1/sqrt(p_b_0) sum_x a_(x, b_0) |x chevron.r
+  $
+] <eq:post-measurement>
+
+#definition(name: "Postselection")[
+  _Postselection_ is the procedure of discarding all runs of a quantum computation except those in
+  which a designated measurement yields a specific outcome. The resulting (accepted) state is the
+  conditional state in @eq:post-measurement corresponding to that outcome.
+]
+
+In the construction of Caro et al.'s classical verification for quantum learning protocol @Caro_2023
+(which we implement in @sec:prover), the prover prepares an $(n + 1)$-qubit state and measures the
+ancilla qubit. Only runs yielding outcome $b = 1$ are retained, the measurement shapes the amplitude
+distribution of the remaining $n$-qubits into one that encodes a desired Fourier spectrum.
