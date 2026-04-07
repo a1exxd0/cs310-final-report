@@ -113,4 +113,4 @@ Fourier spectrum of $g$.
 However, classically, no efficient procedure is known for recovering the Fourier spectrum in the
 _distributional-agnostic_ setting (@sec:agnostic-learning) where labelling may be stochastic. Caro
 et al. attempt to resolve this by introducing _mixture-of-superpositions_ examples, explored in
-@ch:mos.
+@sec:mos-construction.
