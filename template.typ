@@ -1,5 +1,6 @@
 // University of Warwick — Department of Computer Science report template.
 // Usage: #show: report.with(title: ..., author: ..., ...)
+#import "@preview/wordometer:0.1.5": total-words, word-count
 
 #let report(
   title: none,
@@ -82,6 +83,8 @@
       #line(length: 3cm, stroke: 0.5pt + brand-purple)
       #v(0.4cm)
       #text(size: 11pt, fill: luma(100))[Department of Computer Science \ University of Warwick]
+      #v(0.4cm)
+      #text(size: 10pt, fill: luma(100))[Word count: #total-words]
     ]
     v(2cm)
 
