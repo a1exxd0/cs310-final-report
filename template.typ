@@ -13,9 +13,9 @@
   set document(title: title, author: author)
   set page(paper: "a4", margin: (x: 2cm, y: 2cm))
   set text(font: "New Computer Modern", size: 12pt, lang: "en")
-  set par(justify: true, leading: 0.55em, spacing: 0.8em)
+  set par(justify: true, leading: 0.75em, spacing: 1.2em)
   set heading(numbering: "1.1")
-  set block(spacing: 0.8em)
+  set block(spacing: 1.2em)
 
   // ── Heading styles ─────────────────────────────────────────────────
   show heading.where(level: 1): it => {
