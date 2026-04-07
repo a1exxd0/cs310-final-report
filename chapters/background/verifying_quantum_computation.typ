@@ -1,7 +1,6 @@
-== Verifying Quantum Computation <sec:verifying-qc>
+== Verifying Quantum Computations <sec:verifying-qc>
 
-=== Interactive Proofs and the QPIP model
+The complexity class bounded-error quantum polynomial time (_BQP_), is contained in _PSPACE_
+@Nielsen_2010[p. 201] and therefore in _IP_.
 
-=== Mahadev's Trapdoor Claw-Free model for verification <sec:tdcf>
-
-
+=== The Quantum-Prover

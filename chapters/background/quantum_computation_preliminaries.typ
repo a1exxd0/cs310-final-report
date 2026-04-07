@@ -4,21 +4,22 @@
 
 === Dirac Notation for Quantum Mechanics
 
-The bra-ket notation @Dirac_1939 introduced by Paul Dirac in 1939 provides a concise algebraic framework
-for the manipulation of vectors and linear functionals within a Hilbert space $cal(H)$. Throughout this
-report, all Hilbert spaces are finite-dimensional and are isomorphic to $bb(C)^2^n$ for some $n in bb(N)$,
-a complex vector space equipped with an inner product.
+The bra-ket notation @Dirac_1939 introduced by Paul Dirac in 1939 provides a concise algebraic
+framework for the manipulation of vectors and linear functionals within a Hilbert space $cal(H)$.
+Throughout this report, all Hilbert spaces are finite-dimensional and are isomorphic to $bb(C)^2^n$
+for some $n in bb(N)$, a complex vector space equipped with an inner product.
 
 #definition(name: "Bra-ket notation")[
-  A ket vector $|psi chevron.r$ is an element of the Hilbert space $cal(H)$, representing a quantum state.
-  In a finite-dimensional basis, this corresponds to a column vector in $bb(C)^d$.
-  A bra vector $chevron.l phi.alt|$ is an element of the dual space $cal(H)^*$, obtained as the Hermitian
+  A ket vector $|psi chevron.r$ is an element of the Hilbert space $cal(H)$, representing a quantum
+  state. In a finite-dimensional basis, this corresponds to a column vector in $bb(C)^d$. A bra
+  vector $chevron.l phi.alt|$ is an element of the dual space $cal(H)^*$, obtained as the Hermitian
   conjugate transpose of its corresponding ket: $chevron.l phi.alt| = (|phi.alt chevron.r)^dagger$.
 ]
 
-The inner product $chevron.l phi|psi chevron.r$ of two states $|phi chevron.r comma |psi chevron.r in cal(H)$
-yields a scalar in $bb(C)$. The outer product $|phi chevron.r chevron.l psi|$ is the rank-1 linear operator
-on $cal(H)$ defined by its action on an arbitrary state $|chi chevron.r in cal(H)$:
+The inner product $chevron.l phi|psi chevron.r$ of two states
+$|phi chevron.r comma |psi chevron.r in cal(H)$ yields a scalar in $bb(C)$. The outer product
+$|phi chevron.r chevron.l psi|$ is the rank-1 linear operator on $cal(H)$ defined by its action on
+an arbitrary state $|chi chevron.r in cal(H)$:
 #math.equation(
   block: true,
   numbering: none,
@@ -26,8 +27,9 @@ on $cal(H)$ defined by its action on an arbitrary state $|chi chevron.r in cal(H
 
 === Qubits and State Vectors
 
-A _qubit_ is the fundamental unit of quantum information, analogous to a classical bit. Mathematically, the
-state of a single qubit is a unit vector in the two-dimensional complex Hilbert space $bb(C)^2$.
+A _qubit_ is the fundamental unit of quantum information, analogous to a classical bit.
+Mathematically, the state of a single qubit is a unit vector in the two-dimensional complex Hilbert
+space $bb(C)^2$.
 
 #definition(name: "Computational basis")[
   The _computational basis_ of $bb(C)^2$ consists of two orthonormal column vectors:
@@ -55,12 +57,13 @@ state of a single qubit is a unit vector in the two-dimensional complex Hilbert 
     $
   ]
 
-  The constraint $|alpha|^2 + |beta|^2 = 1$ is the _normalisation condition_, ensuring that $|psi chevron.r$ is
-  a unit vector under the standard inner product $chevron.l phi.alt|psi chevron.r = sum_i overline(phi.alt_i) psi_i$.
+  The constraint $|alpha|^2 + |beta|^2 = 1$ is the _normalisation condition_, ensuring that
+  $|psi chevron.r$ is a unit vector under the standard inner product
+  $chevron.l phi.alt|psi chevron.r = sum_i overline(phi.alt_i) psi_i$.
 ]
 
-The state space of an $n$-qubit system is constructed via tensor product. Concretely, $n$ qubits inhabit
-the Hilbert space:
+The state space of an $n$-qubit system is constructed via tensor product. Concretely, $n$ qubits
+inhabit the Hilbert space:
 
 #math.equation(
   block: true,
@@ -92,16 +95,18 @@ A general $n$-qubit pure state takes the form:
 ]
 
 In the protocol of @ch:implementation, the prover prepares $(n + 1)$-qubit registers: $n$ qubits
-encoding the input domain ${0, 1}^n$ and one ancilla qubit used for postselection (see @sec:measurement).
+encoding the input domain ${0, 1}^n$ and one ancilla qubit used for postselection (see
+@sec:measurement).
 
 === Quantum Gates
 
-A quantum gate acting on $k$ qubits is a $2^k times 2^k$ unitary matrix $U$ (where $U^dagger U = bb(I)$).
-Unitarity guarantees that gate application preserves the normalisation condition and is reversible. We
-introduce only the gates that appear in the verification protocol.
+A quantum gate acting on $k$ qubits is a $2^k times 2^k$ unitary matrix $U$ (where
+$U^dagger U = bb(I)$). Unitarity guarantees that gate application preserves the normalisation
+condition and is reversible. We introduce only the gates that appear in the verification protocol.
 
 *Pauli-X gate.*
-The Pauli-X gate is the quantum analogue of a classical _NOT_ gate, applied to a single qubit and swapping $|0 chevron.r <-> |1 chevron.r$:
+The Pauli-X gate is the quantum analogue of a classical _NOT_ gate, applied to a single qubit and
+swapping $|0 chevron.r <-> |1 chevron.r$:
 
 #math.equation(
   block: true,
@@ -135,8 +140,8 @@ Its action on the computational basis is, for $b in {0, 1}$:
   $
 ]
 
-*$n$-fold Hadamard.* Applying $H$ independently to each of $n$ qubits yields $H^(times.o n)$, which acts on
-computational basis states as:
+*$n$-fold Hadamard.* Applying $H$ independently to each of $n$ qubits yields $H^(times.o n)$, which
+acts on computational basis states as:
 
 #math.equation(
   block: true,
@@ -147,11 +152,13 @@ computational basis states as:
   $
 ]
 
-Where $x dot y = plus.o.big_(i=1)^n x_i y_i$ denotes the bitwise inner product modulo 2. This is the discrete
-analogue of the Fourier transform over $bb(F)^n_2$ and is central to the Quantum Fourier Sampling (QFS) subroutine
-in @sec:fourier-analysis.
+Where $x dot y = plus.o.big_(i=1)^n x_i y_i$ denotes the bitwise inner product modulo 2. This is the
+discrete analogue of the Fourier transform over $bb(F)^n_2$ and is central to the Quantum Fourier
+Sampling (QFS) subroutine in @sec:fourier-analysis.
 
-*Multi-controlled-X (MCX) Gate.* The MCX gate flips a designated target qubit if and only if all $n$ control qubits are in state $|1 chevron.r$. In this protocol, MCX gates are used within an oracle $U_f$ that encodes a boolean function $f: {0, 1}^n -> {0, 1}$ via:
+*Multi-controlled-X (MCX) Gate.* The MCX gate flips a designated target qubit if and only if all $n$
+control qubits are in state $|1 chevron.r$. In this protocol, MCX gates are used within an oracle
+$U_f$ that encodes a boolean function $f: {0, 1}^n -> {0, 1}$ via:
 
 #math.equation(
   block: true,
@@ -167,7 +174,8 @@ The MCX gate is central to the implementation we provide in @ch:implementation.
 === Measurement <sec:measurement>
 
 #definition(name: "Born rule")[
-  The fundamental measurement postulate states that measuring an $n$-qubit state $|psi chevron.r = sum_x a_x|x chevron.r$ yields outcome $x in {0, 1}^n$ with probability:
+  The fundamental measurement postulate states that measuring an $n$-qubit state
+  $|psi chevron.r = sum_x a_x|x chevron.r$ yields outcome $x in {0, 1}^n$ with probability:
 
   #math.equation(
     block: true,
@@ -181,8 +189,8 @@ The MCX gate is central to the implementation we provide in @ch:implementation.
   And the post-measurement state collapses to $|x chevron.r$.
 ]
 
-When only a subset of $n$ qubits is measured, the remaining qubits are left in a conditional
-state determined by the measurement outcome. Consider an $(n + 1)$-qubit state written as:
+When only a subset of $n$ qubits is measured, the remaining qubits are left in a conditional state
+determined by the measurement outcome. Consider an $(n + 1)$-qubit state written as:
 
 #math.equation(
   block: true,

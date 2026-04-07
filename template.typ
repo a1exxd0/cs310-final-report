@@ -99,31 +99,51 @@
 }
 
 // ── Theorem environments ───────────────────────────────────────────
-#let theorem-counter = counter("theorem")
-#let definition-counter = counter("definition")
-
-#let theorem(body, name: none) = {
-  theorem-counter.step()
+#let theorem(body, name: none) = figure(
   block(
     width: 100%,
     inset: 10pt,
     stroke: (left: 2pt + luma(80)),
     fill: luma(245),
   )[
-    *Theorem #context theorem-counter.display()#if name != none [ (#name)]*. #emph(body)
-  ]
-}
+    #align(left)[
+      *Theorem #context {
+        let chapter = counter(heading.where(level: 1)).display()
+        let num = counter(figure.where(kind: "theorem")).display()
+        [#chapter.#num]
+      }#if name != none [
+        (#name)]*.
+      #emph(body)
+    ]
+  ],
+  kind: "theorem",
+  supplement: "Theorem",
+)
 
-#let definition(body, name: none) = {
-  definition-counter.step()
+#let definition(body, name: none) = figure(
   block(
     width: 100%,
     inset: 10pt,
     stroke: (left: 2pt + luma(140)),
     fill: luma(250),
   )[
-    *Definition #context definition-counter.display()#if name != none [ (#name)]*. #body
-  ]
+    #align(left)[
+      *Definition #context {
+        let chapter = counter(heading.where(level: 1)).display()
+        let num = counter(figure.where(kind: "definition")).display()
+        [#chapter.#num]
+      }#if name != none [
+        (#name)]*. #body
+    ]
+  ],
+  kind: "definition",
+  supplement: "Definition",
+)
+
+#show heading.where(level: 1): it => {
+  counter(figure.where(kind: "theorem")).update(0)
+  counter(figure.where(kind: "definition")).update(0)
+  it
 }
 
 #let proof(body) = {
