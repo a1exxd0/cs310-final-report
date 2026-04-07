@@ -1,4 +1,5 @@
 #import "template.typ": definition, proof, report, theorem
+#import "@preview/wordometer:0.1.5": word-count
 
 #show: report.with(
   title: [TODO: derive a title],
@@ -49,13 +50,16 @@
 )
 #counter(page).update(1)
 
-#include "chapters/introduction.typ"
-#include "chapters/background/base.typ"
-#include "chapters/mos/base.typ"
-#include "chapters/implementation/base.typ"
-#include "chapters/experiments/base.typ"
-#include "chapters/discussion/base.typ"
-#include "chapters/conclusions.typ"
+#[
+  #show: word-count.with(exclude: math.equation)
+  #include "chapters/introduction.typ"
+  #include "chapters/background/base.typ"
+  #include "chapters/mos/base.typ"
+  #include "chapters/implementation/base.typ"
+  #include "chapters/experiments/base.typ"
+  #include "chapters/discussion/base.typ"
+  #include "chapters/conclusions.typ"
+]
 
 // ── Appendices ──────────────────────────────────────────────────────
 #counter(heading).update(0)
