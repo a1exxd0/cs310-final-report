@@ -7,5 +7,13 @@
 
     TODO: derive an abstract
   ]
+
+  #v(5em)
+
+  #align(center)[
+    #par(justify: false)[
+      *Keywords:* Quantum, BQP, Fourier Analysis, TODO.
+    ]
+  ]
 ]
 #v(1fr)
