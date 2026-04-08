@@ -1,6 +1,25 @@
-#import "../../template.typ": proof, theorem
+#import "../../template.typ": definition, proof, theorem
 
 == The Four-Step Protocol <sec:protocol>
+
+#definition(name: text[Distributions with $L_2$-bounded bias])[
+  Let $0 lt.eq a lt.eq b lt.eq 1$. We denote the class of probability distributions
+  $cal(D) = (cal(U)_n, phi)$ over $cal(X)_n times {0, 1}$ that have a uniform marginal over
+  $cal(X)_n$, and whose ${-1, 1}$-label expectation $phi.alt$ has squared $L_2$ norm in $[a^2, b^2]$
+  by:
+
+  #math.equation(block: true, numbering: none)[
+    $
+      frak(D)_(cal(U)_n; [a^2, b^2]) := {(cal(U)_n, phi): bb(E)_(x tilde cal(U)_n) [(phi.alt(x))^2] in [a^2, b^2]}
+    $
+  ]
+] <def:l2_bias_dist>
+
+The motivation behind @def:l2_bias_dist is derived from the requirement of the verifier checking
+whether the prover has provided a list with sufficient accumulated Fourier weight. Without such a
+promise, the total Fourier weight in the distributional-agnostic case may take any value
+$in [0, 1]$. With this established, we now state the distributional-agnostic version of classical
+verification for quantum parity learning.
 
 #theorem(name: "Classical verification of quantum learning with MoS")[
   Let $theta.alt in (2^(-(n/2 - 3)), 1)$. Let $0 lt.eq a lt.eq b lt.eq 1$. Let $delta in (0, 1)$ and
