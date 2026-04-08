@@ -234,3 +234,66 @@ We provide a vectorized implementation `sample_classical_batch`, available in
 
 === Implementation of Fourier analysis over MoS
 
+Recall from @def:fourier-coefficients-and-expansion, for the Fourier coeffient $hat(phi.alt)(s)$
+where $chi_s (x) = (-1)^(s dot x)$ and $phi.alt = 1 - 2 phi$:
+
+#math.equation(block: true, numbering: none)[
+  $
+    hat(phi.alt)(s) = bb(E)_(x tilde U_n)[phi.alt(x) dot chi_s (x)]
+  $
+]
+
+Then, we can calculate the exact Fourier coefficient at $s$ with:
+
+#figure(
+  caption: text[The fourier coefficient calculation for some specific $s$.],
+)[
+  ```py
+  # mos/__init__.py:482-489
+  tphi = self.tilde_phi
+  parities = np.array([bin(s & x).count("1") % 2 for x in range(self.dim_x)])
+  chi_s = 1.0 - 2.0 * parities  # (-1)^{s·x}
+  coeff = float(np.mean(tphi * chi_s))
+  if effective:
+      coeff *= self._noise_damping
+  return coeff
+  ```
+]
+
+We provide both a function to compute the full Fourier spectrum `fourier_spectrum` for all $s$ via
+repetition of the above, as well as a function to verify Parseval's identity `parseval_check`:
+
+#math.equation(block: true, numbering: none)[
+  $
+    sum_s hat(phi.alt)(s)^2 = bb(E)[phi.alt(x)^2],
+  $
+]
+
+available in @fig:mos_fourier_analysis.
+
+Now recall from @eq:sample_probability_of_mos that if one applies $H^(times.o (n + 1))$ to a copy of
+$rho_cal(D)$, and measures all qubits in the computational basis post-selecting on the label qubit
+being $|1 chevron.r$, then the conditional distribution over the first $n$ bits is:
+
+#math.equation(block: true, numbering: none)[
+  $
+    bb(P)[s | b = 1] =
+    1/2^n (1 - bb(E)_(x tilde cal(U)_n) [(phi.alt(x))^2]) + (hat(phi.alt)(s))^2
+  $
+]
+
+We compute this as follows:
+
+#figure(
+  caption: text[Computed probability of observing $s$, conditioned on the last qubit being $1$.],
+)[
+  ```py
+  tphi_eff = self.tilde_phi_effective
+  E_sq = float(np.mean(tphi_eff**2))
+  coeff = self.fourier_coefficient(s, effective=True)
+  return (1.0 - E_sq) / self.dim_x + coeff**2
+  ```
+]
+
+We provide a function `qfs_distribution` to calculate the full QFS distribution over ${0, 1}^n$ in
+@fig:mos_fourier_analysis.
