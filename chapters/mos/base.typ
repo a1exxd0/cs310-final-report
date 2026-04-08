@@ -6,7 +6,6 @@ its heaviest coefficients with only a classical verifier. They acieved this usin
 Mixture-of-Superpositions technique.
 
 #include "mos_construction.typ"
-#include "qfs.typ"
 #include "protocol.typ"
 #include "parameters.typ"
 #include "questions.typ"
