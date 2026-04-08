@@ -2,7 +2,7 @@
 #import "@preview/wordometer:0.1.5": word-count
 
 #show: report.with(
-  title: [TODO: derive a title],
+  title: [Implementing and Empirically Evaluating the Mixture-of-Superpositions-based Protocol for Classically Verifiable Quantum Learning],
   author: "Alex Do",
   student-id: "5505454",
   supervisor: "Dr. Matthias Caro",

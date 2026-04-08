@@ -66,7 +66,10 @@
     // Title and metadata
     v(1cm)
     align(center)[
-      #text(size: 24pt, weight: "bold", title)
+      #block(width: 80%)[
+        #set par(leading: 0.4em, justify: false)
+        #text(size: 22pt, weight: "bold", title)
+      ]
       #v(0.8cm)
       #text(size: 14pt, author)
       #if student-id != none [ \ #text(size: 12pt)[Student ID: #student-id] ]

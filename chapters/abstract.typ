@@ -12,7 +12,8 @@
 
   #align(center)[
     #par(justify: false)[
-      *Keywords:* Quantum, BQP, Fourier Analysis, TODO.
+      *Keywords:* Quantum Verification, Mixture of Superpositions, Fourier Learning,
+      Distribution-Agnostic learning, Boolean Function Learning, Classical Verification
     ]
   ]
 ]
