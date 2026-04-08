@@ -41,7 +41,7 @@ For each $s in {0, 1}^n$, define the _parity function_:
   decomposes uniquely as $phi.alt = sum_(s in {0, 1}^n) hat(phi.alt)(s) chi_s$. In other words,
   every function on the Boolean hypercube can be expressed as a unique linear combination of parity
   functions.
-]
+] <def:fourier-coefficients-and-expansion>
 
 Following this, we can state a fundamental identity relating the $ell^2$-norm of a function to its
 Fourier coefficients:
@@ -55,7 +55,7 @@ Fourier coefficients:
 
   Note that if $phi.alt$ is ${-1, 1}$-valued, then $sum_(s in {0, 1}^n)(hat(phi.alt)(s))^2 = 1$, so
   the squared Fourier coefficients form a probability distribution over ${0, 1}^n$.
-]
+] <thm:parseval-identity>
 
 #proof[See @Odonnel_2021.]
 

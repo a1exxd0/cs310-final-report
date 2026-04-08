@@ -51,7 +51,7 @@
 #counter(page).update(1)
 
 #[
-  #show: word-count.with(exclude: math.equation)
+  #show: word-count.with(exclude: (math.equation))
   #include "chapters/introduction.typ"
   #include "chapters/background/base.typ"
   #include "chapters/mos/base.typ"
@@ -63,8 +63,12 @@
 
 // ── Appendices ──────────────────────────────────────────────────────
 #counter(heading).update(0)
-#set heading(numbering: "A.1")
-#include "chapters/appendices/appendix-circuits.typ"
+#set heading(numbering: "A.1", supplement: "Appendix")
+#include "chapters/appendices/mos_state.typ"
+#include "chapters/appendices/quantum_fourier_sampler.typ"
+#include "chapters/appendices/mos_prover.typ"
+#include "chapters/appendices/mos_verifier.typ"
+#include "chapters/appendices/sampling_circuit.typ"
 
 // ── Bibliography ─────────────────────────────────────────────────────
 #bibliography("bibliography.bib", style: "ieee")

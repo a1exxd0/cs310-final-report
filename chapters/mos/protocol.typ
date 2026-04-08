@@ -48,6 +48,6 @@ verification for quantum parity learning.
     $s_("out") in "argmax"_(1 lt.eq ell lt.eq |L|) hat(xi))s$ and outputs the hypothesis
     $h: cal(X)_n -> {0, 1}, h(x) = s_("out") dot x$. If
     $sum_(ell = 1)^(|L|) (hat(xi)(s_ell))^2 lt a^2 - epsilon^2/8$ then $V$ outputs reject.
-]
+] <thm:protocol>
 
 #proof[See @Caro_2023[p. 45].]

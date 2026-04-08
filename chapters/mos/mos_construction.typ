@@ -73,6 +73,8 @@ operator corresponding to the quantum example conditioned on $f$, meeting @def:m
 
 === Approximate Quantum Fourier Sampling from MoS <sec:qfs-from-mos>
 
+A formal theorem for the circuit we implement in @fig:mos-qfs-circuit-diagram.
+
 #theorem(name: "Approximate fourier sampling over Mixture of Superpositions")[
   Let $cal(D)$ be a probability distribution over $cal(X)_n times {0, 1}$ with
   $cal(D)_cal(X)_n = cal(U)_n$. Let
