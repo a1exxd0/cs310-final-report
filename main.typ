@@ -67,6 +67,8 @@
 #include "chapters/appendices/mos_state.typ"
 #include "chapters/appendices/quantum_fourier_sampler.typ"
 #include "chapters/appendices/mos_prover.typ"
+#include "chapters/appendices/mos_verifier.typ"
+#include "chapters/appendices/sampling_circuit.typ"
 
 // ── Bibliography ─────────────────────────────────────────────────────
 #bibliography("bibliography.bib", style: "ieee")

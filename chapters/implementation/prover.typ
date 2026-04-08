@@ -2,7 +2,7 @@
 
 == Quantum Prover <sec:prover>
 
-Recall @thm:protocol, step 2. The prover `P` is responsible for obtaining a succinctly represented
+Recall @thm:protocol, step 2. The prover $P$ is responsible for obtaining a succinctly represented
 $tilde(phi.alt): cal(X)_n -> [-1, 1]$.
 
 #corollary()[
