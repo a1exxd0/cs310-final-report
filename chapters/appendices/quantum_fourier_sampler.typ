@@ -1,6 +1,7 @@
 = The `QuantumFourierSampler` for sampling from MoS <app:qfs>
 
 For the sake of conciseness, all comments have been removed from all appendices, but are available
+in source code.
 
 == Constructor <fig:qfs_sampler_consructor>
 

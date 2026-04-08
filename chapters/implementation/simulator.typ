@@ -300,7 +300,7 @@ We compute this as follows:
 We provide a function `qfs_distribution` to calculate the full QFS distribution over ${0, 1}^n$ in
 @fig:mos_fourier_analysis.
 
-=== Sampling from `MoSState`
+=== Sampling from `MoSState` <sec:sampling_from_mos_state>
 
 The package `mos/sampler.py` is the only place in the codebase of which performs Hadamard-basis
 measurements of a MoS state, depending only on `MoSState` from @app:mos. In the case of

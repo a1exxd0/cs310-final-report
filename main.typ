@@ -66,6 +66,7 @@
 #set heading(numbering: "A.1", supplement: "Appendix")
 #include "chapters/appendices/mos_state.typ"
 #include "chapters/appendices/quantum_fourier_sampler.typ"
+#include "chapters/appendices/mos_prover.typ"
 
 // ── Bibliography ─────────────────────────────────────────────────────
 #bibliography("bibliography.bib", style: "ieee")

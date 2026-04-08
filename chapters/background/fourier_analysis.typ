@@ -55,7 +55,7 @@ Fourier coefficients:
 
   Note that if $phi.alt$ is ${-1, 1}$-valued, then $sum_(s in {0, 1}^n)(hat(phi.alt)(s))^2 = 1$, so
   the squared Fourier coefficients form a probability distribution over ${0, 1}^n$.
-]
+] <thm:parseval-identity>
 
 #proof[See @Odonnel_2021.]
 
