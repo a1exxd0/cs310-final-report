@@ -119,6 +119,25 @@
   supplement: "Theorem",
 )
 
+#let lemma(body, name: none) = figure(
+  block(
+    width: 100%,
+    inset: 10pt,
+    stroke: (left: 2pt + luma(80)),
+    fill: luma(245),
+  )[
+    #align(left)[
+      *Lemma #context {
+        let num = counter(figure.where(kind: "lemma")).display()
+        [#num]
+      }#if name != none [
+        (#name)]*. #body
+    ]
+  ],
+  kind: "lemma",
+  supplement: "Lemma",
+)
+
 #let definition(body, name: none) = figure(
   block(
     width: 100%,
