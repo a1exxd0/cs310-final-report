@@ -51,7 +51,7 @@
 #counter(page).update(1)
 
 #[
-  #show: word-count.with(exclude: (math.equation, raw.where(block: true)))
+  #show: word-count.with(exclude: (math.equation))
   #include "chapters/introduction.typ"
   #include "chapters/background/base.typ"
   #include "chapters/mos/base.typ"
@@ -65,6 +65,7 @@
 #counter(heading).update(0)
 #set heading(numbering: "A.1", supplement: "Appendix")
 #include "chapters/appendices/mos_state.typ"
+#include "chapters/appendices/quantum_fourier_sampler.typ"
 
 // ── Bibliography ─────────────────────────────────────────────────────
 #bibliography("bibliography.bib", style: "ieee")

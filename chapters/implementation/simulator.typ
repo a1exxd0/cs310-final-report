@@ -75,6 +75,8 @@ on the $x$ register, followed by an oracle that flips the label qubit on every $
   ```
 ]
 
+Following this, we define the oracle flipping the label qubit on $x: f(x) = 1$ `_circuit_oracle_f`:
+
 #figure(
   caption: text[Circuit oracle $f$.],
 )[
@@ -297,3 +299,68 @@ We compute this as follows:
 
 We provide a function `qfs_distribution` to calculate the full QFS distribution over ${0, 1}^n$ in
 @fig:mos_fourier_analysis.
+
+=== Sampling from `MoSState`
+
+The package `mos/sampler.py` is the only place in the codebase of which performs Hadamard-basis
+measurements of a MoS state, depending only on `MoSState` from @app:mos. In the case of
+`Statevector`-based simulation, we sample an independent $f$ per "shot", and draw a single
+measurement outcome per $f$:
+
+#figure(
+  caption: text[Sampling $f$ from the `MoSState` construction and performing a final measurement on
+    the evolved state.],
+)[
+  ```py
+  # mos/sampler.py:312-332
+  n = self.n
+  dim_total = self.state.dim_total
+  counts: dict[str, int] = {}
+
+  h_circuit = QuantumCircuit(n + 1, name="H_all")
+  for q in range(n + 1):
+      h_circuit.h(q)
+
+  for _ in range(shots):
+      f = self.state.sample_f(rng=self._rng)
+      psi_f = self.state.statevector_f(f)
+      psi_h = psi_f.evolve(h_circuit)
+
+      probs = psi_h.probabilities()
+      idx = self._rng.choice(dim_total, p=probs)
+      bitstring = format(idx, f"0{n + 1}b")
+      counts[bitstring] = counts.get(bitstring, 0) + 1
+
+  return counts
+  ```
+]
+
+We provide a circuit-based sampler as well as the postselection mechanism in
+@fig:qfs_sampler_inner_sampling, with dispatch between sampling mechanisms as follows:
+
+#figure(
+  caption: text[`sample` function dispatch],
+)[
+  ```py
+  # mos/sampler.py:227:241
+  dispatch = {
+      "statevector": self._sample_statevector,
+      "circuit": self._sample_circuit,
+  }
+  raw_counts = dispatch[mode](shots)
+  ps_counts, ps_shots = self._postselect(raw_counts)
+
+  return QFSResult(
+      raw_counts=raw_counts,
+      postselected_counts=ps_counts,
+      total_shots=shots,
+      postselected_shots=ps_shots,
+      n=self.n,
+      mode=mode,
+  )
+  ```
+]
+
+Note that we store `postselected_counts` - although not a meaningful statistic for the actual
+verification procedure in @thm:protocol, it is important for checking protocol correctness to
+theory. We collect a number of statistics in a similar fashion for testing.
