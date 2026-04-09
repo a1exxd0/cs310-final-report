@@ -3,7 +3,7 @@
 The honest quantum prover from @sec:prover and the verifier $V$ we implement here together realise
 the (V, P) pair of @thm:protocol.
 
-Upon reciept of prover $P$'s list, we immediately perform the list size check in step three of
+Upon receipt of prover $P$'s list, we immediately perform the list size check in step three of
 @thm:protocol, before any classical samples are drawn from $cal(D)$:
 
 #figure(

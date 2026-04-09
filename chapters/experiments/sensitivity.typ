@@ -25,12 +25,12 @@ The target function in this case is the canonical Maiorana-McFarland bent functi
 $f(x, y) = chevron.l x, y, chevron.r mod 2$ over $(bb(F)_2)^(n/2)$, for which
 $|hat(g)(s)| = 2^(-(n / 2))$ uniformly on all $2^n$ input strings.
 
-From the conditional probability $bb(P)[s|b = 1]$ in @sec:robustness-label-flip, we cam set
+From the conditional probability $bb(P)[s|b = 1]$ in @sec:robustness-label-flip, we can set
 $bb(E)_x[phi(x)^2] = 1$ and $eta = 0$ to collapse the distribution to $bb(P)[s|b = 1] = 2^(-n)$,
 i.e. exactly uniform and information-theoretically indistinguishable from sampling noise.
 
 From Caro et al. @Caro_2023[Corollary 5, p.28] we guarantee inclusion of $s in L$ when
-$|hat(g)(s)| gt.eq epsilon$ and excludes $s$ whem $|hat(g)(s)| lt epsilon/2$. For bent coefficients
+$|hat(g)(s)| gt.eq epsilon$ and excludes $s$ when $|hat(g)(s)| lt epsilon/2$. For bent coefficients
 $2^(-n/2)$ at $epsilon = 0.3$, this locates a crossover at $n = 2 log_2(2/epsilon) approx 5.47$.
 
 At $n = 4$ all 16 flat-spectrum coefficients clear the conditional QFS extraction threshold

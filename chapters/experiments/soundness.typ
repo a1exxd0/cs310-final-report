@@ -21,7 +21,7 @@ the resulting hypothesis is $epsilon$-close to the planted parity.
 The data set `results/soundness_4_20_100.pb` contain $6800$ trials across $n in {4, dots, 20}$, 100
 trials per $n$. Thorughout, we fix
 $epsilon = 0.3, delta = 0.1, theta.alt = epsilon = 0.3, a^2 = b^2 = 1$ and $m_V = 3000$ verifier
-samples. The four cheating strategies are: a _random list_, five distinct random indicies (so each
+samples. The four cheating strategies are: a _random list_, five distinct random indices (so each
 $s^*$ is present with probability $5 / 2^n$); _wrong parities_, the singleton ${(s^* + 1) mod 2^n}$;
 the empty list $L = []$; and an _inflated list_ with ten random indices excluding $s^*$.
 

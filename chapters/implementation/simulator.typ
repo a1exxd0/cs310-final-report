@@ -136,7 +136,7 @@ $|x, b chevron.r$ to index $x + b dot 2^n$.
       |psi_f chevron.r = 1/sqrt(2^n) sum_(x=0)^(2^n - 1) |x, f(x) chevron.r
     $
   ]
-]
+] <lemma:original>
 
 #proof[
   We write $|x, b chevron.r$ for the basis state where the input register holds
@@ -164,7 +164,7 @@ $|x, b chevron.r$ to index $x + b dot 2^n$.
     $
   ]
 
-  All other basis states, namely $|x, overline(f(x)) chevron.r$ recieve zero amplitude due to a
+  All other basis states, namely $|x, overline(f(x)) chevron.r$ receive zero amplitude due to a
   deterministic $f$.
 
   For the circuit-based preparation, we start with an application of $(H^(times.o n) times.o I)$ to
@@ -236,7 +236,7 @@ We provide a vectorized implementation `sample_classical_batch`, available in
 
 === Implementation of Fourier analysis over MoS
 
-Recall from @def:fourier-coefficients-and-expansion, for the Fourier coeffient $hat(phi.alt)(s)$
+Recall from @def:fourier-coefficients-and-expansion, for the Fourier coefficient $hat(phi.alt)(s)$
 where $chi_s (x) = (-1)^(s dot x)$ and $phi.alt = 1 - 2 phi$:
 
 #math.equation(block: true, numbering: none)[

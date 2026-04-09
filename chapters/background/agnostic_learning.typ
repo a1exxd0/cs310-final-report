@@ -5,11 +5,11 @@
 This section establishes the learning-theoretic foundations underlying the classical verification of
 quantum learning framework from Caro et al. @Caro_2023. We begin by formalising the case of the
 agnostic learning task @Haussler_1992. There are two canonical choices documented:
-- In _functional-agnostic_ learning with respect to uniformy random inputs, we assume the data
+- In _functional-agnostic_ learning with respect to uniformly random inputs, we assume the data
   consists of labelled inputs $(x_i, f(x_i))$ with $x_i$ drawn i.i.d. uniformly at random from
   $cal(X) = {0, 1}^n$ and $f: {0, 1}^n -> {0, 1}$, an unknown boolean function. We denote the
   data-generating distribution as $cal(D) = (cal(U)_n, f)$.
-- In the _distributional-agnostic_ setting, with respect to uniformy random inputs, we no longer
+- In the _distributional-agnostic_ setting, with respect to uniformly random inputs, we no longer
   assume a perfectly descriptive $f$. In other words we assume samples labelled $(x_i, y_i)$ are
   drawn i.i.d. over some distribution $cal(D)$ over ${0, 1}^n times {0, 1}$ with uniform marginal
   over ${0, 1}^n$. We denote this as $cal(D) = (cal(U)_n, phi)$ where $phi$:

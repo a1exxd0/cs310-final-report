@@ -6,7 +6,7 @@ to within sampling noise. The strongest such quantitative agreement comes from t
 sweep of @sec:robustness-label-flip. @Caro_2023[Lemma 6] predicts the conditional QFS mass of $s^*$
 is attenuated by exactly $(1 - 2 eta)^2$ under independent flips of rate $eta$. At every
 $eta lt 0.42$ this satisfies, with deviation rising monotnically with $eta$ as expected from
-sampling variance on a vanishing signal. In the _empty list_ input case, it transitions sharpy at
+sampling variance on a vanishing signal. In the _empty list_ input case, it transitions sharply at
 $approx 0.447$, the root at which the acceptance margin $(1 - 2 eta)^2 - epsilon^2/8$ becomes
 negative.
 
@@ -22,5 +22,5 @@ produces a similar result via a heatmap in the dual direction: Acceptance is pre
 $theta.alt = 0.2$, the precise point at which the small-coefficient promise of
 @Caro_2023[Definition. 11, 13] fail.
 
-For adverarial tries in soundness-testing, we saw no bad accepts except for accidental inclusions in
-the _random list_ strategy matching theory to within sampling noise.
+For adversarial tries in soundness-testing, we saw no bad accepts except for accidental inclusions
+in the _random list_ strategy matching theory to within sampling noise.
