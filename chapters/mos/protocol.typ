@@ -36,7 +36,7 @@ verification for quantum parity learning.
   + $P$ follows the procedure in @Caro_2023[p. 27] to produce, with success probability
     $gt.eq 1 - delta/2$ a succinctly represented $tilde(phi.alt): cal(X)_n -> [-1, 1]$ such that
     $||tilde(phi.alt) - hat(phi.alt)||_infinity lt.eq theta.alt/2$ and
-    $||tilde(theta)||_0 lt.eq (64 b^2)/theta.alt^2$. If $P$ obtains an output that violates the
+    $||tilde(phi.alt)||_0 lt.eq (64 b^2)/theta.alt^2$. If $P$ obtains an output that violates the
     $||dot||_0$ bound, then $P$ declares failure and the interation aborts. Otherwise, $P$ sends the
     list $L = {s in {0, 1}^n: |tilde(phi.alt)(s) gt.eq theta.alt/2}$ to $V$.
   + If $V$ recieves a list $L$ of length $|L| > (64 b^2)/theta.alt^2$, $V$ rejects the interaction.
