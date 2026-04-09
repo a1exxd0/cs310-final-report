@@ -212,7 +212,7 @@ Measuring the last qubit and obtaining outcome $b_0$ occurs with probability:
   $
 ]
 
-And the conditional (post-measurement) state of the first $n$-qubits is:
+And the conditional (post-measurement) state of the first $n$ qubits is:
 
 #math.equation(
   block: true,

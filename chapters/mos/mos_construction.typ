@@ -93,6 +93,6 @@ A formal theorem for the circuit we implement in @fig:mos-qfs-circuit-diagram.
 
   Caro et al. @Caro_2023 state that, with probability $1/2$, produce a sample from a distribution
   uniformly close to the squared Fourier spectrum of the label-bias function $phi$.
-]
+] <thm:approx_sampling>
 
 #proof[See @Caro_2023[p. 26].]
