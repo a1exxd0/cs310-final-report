@@ -75,7 +75,7 @@ operator corresponding to the quantum example conditioned on $f$, meeting @def:m
 
 A formal theorem for the circuit we implement in @fig:mos-qfs-circuit-diagram.
 
-#theorem(name: "Approximate fourier sampling over Mixture of Superpositions")[
+#theorem(name: "Approximate Fourier sampling over Mixture of Superpositions")[
   Let $cal(D)$ be a probability distribution over $cal(X)_n times {0, 1}$ with
   $cal(D)_cal(X)_n = cal(U)_n$. Let
   $rho_cal(D) = bb(E)_(f tilde F_cal(D))[ |phi_((cal(U)_n, f)) chevron.r chevron.l phi_((cal(U)_n, f))| ]$
@@ -84,7 +84,7 @@ A formal theorem for the circuit we implement in @fig:mos-qfs-circuit-diagram.
   outcomes of this procedure satisfy the following:
 
   + The computational basis on the last qubit gives outcomes ${0, 1}$ with equal probability.
-  + Conditioned on having ovserved outcome 1 for the last qubit, the computational basis measurement
+  + Conditioned on having observed outcome 1 for the last qubit, the computational basis measurement
     on the first $n$ qubits outputs a string $s in {0, 1}^n$ with probability
 
   $

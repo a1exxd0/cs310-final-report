@@ -5,7 +5,7 @@ Following from the notion of an interactive proof system (@def:ips) and developi
 classical verifier, with access to only classical random examples or statistical queries, reliably
 delegate an agnostic learning task to an untrusted quantum prover?
 
-Goldwasser, Rothblum, Shafer, and Yehudayofff @Goldwasser_2021 introduce a formal framework of
+Goldwasser, Rothblum, Shafer, and Yehudayoff @Goldwasser_2021 introduce a formal framework of
 interactive proofs for Probably Approximately Correct (PAC) learning. A key observation of their
 work is that verification is trivial in the realizable PAC setting (the verifier can simply test the
 prover's hypothesis on fresh examples) but becomes non-trivial in the agnostic setting, where

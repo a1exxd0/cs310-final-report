@@ -2,7 +2,7 @@
 
 The implementation of the Caro et al. @Caro_2023 protocol in @thm:protocol is split into two Python
 packages that reflect a deliberate separation between _state_-level quantum machinery and
-_protocol_-level interactive verification. Throughout this implentation, we heavily rely on the
+_protocol_-level interactive verification. Throughout this implementation, we heavily rely on the
 Qiskit @Qiskit_2024 package, an open source, Python-based, high-performance software stack for
 quantum computing.
 

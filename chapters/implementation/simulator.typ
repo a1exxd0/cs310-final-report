@@ -136,7 +136,7 @@ $|x, b chevron.r$ to index $x + b dot 2^n$.
       |psi_f chevron.r = 1/sqrt(2^n) sum_(x=0)^(2^n - 1) |x, f(x) chevron.r
     $
   ]
-]
+] <lemma:original>
 
 #proof[
   We write $|x, b chevron.r$ for the basis state where the input register holds
@@ -164,7 +164,7 @@ $|x, b chevron.r$ to index $x + b dot 2^n$.
     $
   ]
 
-  All other basis states, namely $|x, overline(f(x)) chevron.r$ recieve zero amplitude due to a
+  All other basis states, namely $|x, overline(f(x)) chevron.r$ receive zero amplitude due to a
   deterministic $f$.
 
   For the circuit-based preparation, we start with an application of $(H^(times.o n) times.o I)$ to
@@ -213,9 +213,9 @@ $rho_cal(D)$ in the computational basis @Caro_2023.
   As claimed.
 ]
 
-To avoid overhead of quantum simulation, we can instead sample $x tilde U_n$, and
+To avoid the overhead of quantum simulation, we can instead sample $x tilde U_n$, and
 $y tilde "Bernoulli"(phi_("eff")(x))$ directly, which works on the same distribution, but without
-having to use a $2^((n+1))$-dimension state vector.
+having to use a $2^((n+1))$-dimensional state vector.
 
 #figure(
   caption: text[A singular sample $x tilde U_n$ and $y tilde "Bernoulli"(phi_("eff")(x))$.],
@@ -236,7 +236,7 @@ We provide a vectorized implementation `sample_classical_batch`, available in
 
 === Implementation of Fourier analysis over MoS
 
-Recall from @def:fourier-coefficients-and-expansion, for the Fourier coeffient $hat(phi.alt)(s)$
+Recall from @def:fourier-coefficients-and-expansion, for the Fourier coefficient $hat(phi.alt)(s)$
 where $chi_s (x) = (-1)^(s dot x)$ and $phi.alt = 1 - 2 phi$:
 
 #math.equation(block: true, numbering: none)[
@@ -248,7 +248,7 @@ where $chi_s (x) = (-1)^(s dot x)$ and $phi.alt = 1 - 2 phi$:
 Then, we can calculate the exact Fourier coefficient at $s$ with:
 
 #figure(
-  caption: text[The fourier coefficient calculation for some specific $s$.],
+  caption: text[The Fourier coefficient calculation for some specific $s$.],
 )[
   ```py
   # mos/__init__.py:482-489
@@ -302,7 +302,7 @@ We provide a function `qfs_distribution` to calculate the full QFS distribution 
 
 === Sampling from `MoSState` <sec:sampling_from_mos_state>
 
-The package `mos/sampler.py` is the only place in the codebase of which performs Hadamard-basis
+The package `mos/sampler.py` is the only place in the codebase that performs Hadamard-basis
 measurements of a MoS state, depending only on `MoSState` from @app:mos. In the case of
 `Statevector`-based simulation, we sample an independent $f$ per "shot", and draw a single
 measurement outcome per $f$:
