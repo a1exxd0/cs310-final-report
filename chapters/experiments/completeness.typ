@@ -2,6 +2,35 @@
 
 === Scaling baseline <sec:completeness-scaling>
 
+The scaling experiment `experiments/harness/scaling.py` is the pure completeness baseline for
+@Caro_2023[Thm. 12]. Each trial draws a uniformly random non-zero parity
+$s^* in {1, dots, 2^n - 1}$, producing a noiseless functional target $phi(x) = s^* dot x$ for which
+the Fourier spectrum is the indicator $hat(tilde(phi)) = chi_(s^*)$ with $a^2 = b^2 = 1$ (no noise).
+
+The experiment is designed to confirm four predictions: that $bb(P)["accept"] gt.eq 1 - delta$; the
+postselection rate is $1/2$; the list-size bound; the wall-clock cost of simulation on classical
+computers as $n$ grows.
+
+Data was collected into `results/scaling_4_16_100.pb`, with $1300$ trials spanning
+$n in {4, dots, 16}$ and $100$ trials per $n$. Parameters were
+$epsilon = 0.3, delta = 0.1, theta.alt = epsilon = 0.3$, and $a^2 = b^2 = 1$. Sample budgets were
+hard-coded, with a fixed total of $6000$ copies of $rho_cal(D)$ per trial independent of $n$.
+
+Acceptance and correctness of acceptance were $100%$ in all cases, so well above the required
+$1 - delta = 0.9$. Median post-selection rate lay in $[0.496, 0.502]$ across all $n$, matching
+@thm:approx_sampling's $1/2$-post-selection rate.
+
+Wall-clock time rose from $0.36$s at $n = 4$ to $1203$s at $n = 16$, and is entirely dominated by
+the $2^(n + 1)$-dimensional statevector simulator and not by any protocol quantity, seen in
+@fig:scaling_1.
+
+#figure(
+  image("figures/scaling_1.png"),
+  caption: text[Fixed-budget feasibility. Total samples per trial are pinned at \(6\,000\); the
+    curve shows wall-clock time, whose growth is dominated by the $2^(n + 1)$-dimensional
+    statevector simulator in `mos/__init__.py`, not by any protocol-level cost.],
+) <fig:scaling_1>
+
 === Average-case performance <sec:completeness-average-case>
 
 === $k$-Sparse verification <sec:completeness-k-sparse>
