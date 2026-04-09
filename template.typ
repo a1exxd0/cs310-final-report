@@ -86,8 +86,6 @@
       #line(length: 3cm, stroke: 0.5pt + brand-purple)
       #v(0.4cm)
       #text(size: 11pt, fill: luma(100))[Department of Computer Science \ University of Warwick]
-      #v(0.4cm)
-      #text(size: 10pt, fill: luma(100))[Word count: #total-words]
     ]
     v(2cm)
 
