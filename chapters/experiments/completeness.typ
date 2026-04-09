@@ -1,4 +1,26 @@
+#import "../../template.typ": definition
+
 == Completeness Experiments <sec:completeness>
+
+#definition(name: text[Interactive verification of $alpha$-agnostic learning])[
+  Let $cal(F) subset.eq {0, 1}^(cal(X)_n)$ be a benchmark class. Let $frak(D)$ be a family of
+  probability distributions over $cal(X)_n times {0, 1}$. Let $alpha gt.eq 1$. We say that $cal(F)$
+  is $alpha$-agnostic verifiable with respect to $frak(D)$ if there exists a pair of classical or
+  quantum algorithms $(V, P)$ that satisfy the following conditions for every input accuracy
+  parameter $epsilon in (0, 1)$ and every confidence parameter $delta in (0, 1)$:
+
+  - *Completeness*: For any $cal(D) in frak(D)$ the random hypothesis $h: cal(X)_n -> {0, 1}$ that
+    $V(epsilon, delta)$ outputs after interacting with honest prover $P$ satisfies:
+  $
+    bb(P)[h eq.not "reject" and ("err"_cal(D) (h) lt.eq alpha dot "opt"_cal(D) (cal(F)) + epsilon)] gt.eq 1 - delta
+  $ <eq:completeness>
+  - *Soundness*: For any $cal(D) in frak(D)$ and for any dishonest prover $P'$, the random
+    hypothesis $h: cal(X)_n -> {0, 1}$ that $V(epsilon, delta)$ outputs after interacting with $P'$
+    satisfies:
+  $
+    bb(P)[h eq.not "reject" and ("err"_cal(D) (h) gt alpha dot "opt"_cal(D) (cal(F)) + epsilon)] lt delta
+  $ <eq:soundness>
+] <def:iv>
 
 === Scaling baseline <sec:completeness-scaling>
 
