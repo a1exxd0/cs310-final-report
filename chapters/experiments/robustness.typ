@@ -13,7 +13,7 @@ For a target parity $s^*$ @Caro_2023[Lemma 6] gives the conditional QFS distribu
   $bb(P)[s|b = 1] = (4 eta - 4 eta^2)/2^n + (1 - 2 eta)^2 hat(g)(s)^2, g = (-1)^f$
 ]
 
-So the fourier mass accumulated at $s^*$ should track $(1 - 2 eta)^2$ exactly, perturbed only by an
+So the Fourier mass accumulated at $s^*$ should track $(1 - 2 eta)^2$ exactly, perturbed only by an
 $n$-independent uniform term. We observe the protocol entering its formal breakdown at
 $eta_("max") approx 0.4470$, the root at which the $(1 - 2 eta)^2 - epsilon^2 / 8$ of @thm:protocol
 becomes negative.

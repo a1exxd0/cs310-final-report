@@ -4,7 +4,7 @@ Two distinct failure modes appear, the first of which is a _vanishing-margin acc
 the multi-element soundness experiment of @sec:soundness-multi-element, the _subset plus noise_
 strategy rejected with a per-cell minimum at $k=2$ of $91%$. Whilst this sits above the required
 $1 - delta = 0.9$. we can identify that this is derived from the structure of the adversarial
-strategy itself. Namely, that we submit a heavy fourier coefficient alongside spurious lighter
+strategy itself. Namely, that we submit a heavy Fourier coefficient alongside spurious lighter
 coefficients. One can observe a similar behaviour in @sec:soundness-single-parity for the _random
 parity_ case.
 

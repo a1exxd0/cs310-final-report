@@ -52,7 +52,7 @@ This experiment sweeps the Fourier resolution parameter $theta.alt$ against a fi
 noise_: a dominant coefficient at a random parity $s^*, c_("dom") = 0.7$ with three secondary
 coefficients at $c_("sec") = 0.1$. To reiterate, the $theta.alt$ parameter is precisely responsible
 for lower-bounding the magnitude of all non-zero Fourier coefficients of the conditional label
-expectation $phi$. Every fourier coefficient is either zero or at least $theta.alt$ in absolute
+expectation $phi$. Every Fourier coefficient is either zero or at least $theta.alt$ in absolute
 value.
 
 With this, we can observe the interesting boundary at $theta.alt = 0.2 = 2 c_("sec")$ - the

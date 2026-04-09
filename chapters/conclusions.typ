@@ -7,9 +7,10 @@ of the protocol's concrete behaviour, complementing its existing asymptotic guar
 
 == Summary of Contributions <sec:conclusions-summary>
 
-The mixture-of-superpositions implementation described in @ch:mos separates state-level quantum
-machinery (the `mos` package and its sampler) from protocol level interactive verification work (the
-`ql` package realising the verifier-prover pair $(V, P)$). Two sampling backends are provided:
+The mixture-of-superpositions implementation described in @ch:implementation separates state-level
+quantum machinery (the `mos` package and its sampler) from protocol level interactive verification
+work (the `ql` package realising the verifier-prover pair $(V, P)$). Two sampling backends are
+provided:
 + A faithful circuit-based preparation of $|psi_f chevron.r$ directly from Hadamard and MCX gates,
 + A lower-overhead `Statevector` construction of which we show in @lemma:original to be equivalent
   in the noiseless case.

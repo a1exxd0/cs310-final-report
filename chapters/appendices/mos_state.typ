@@ -62,6 +62,7 @@ in source code.
       return 1.0 - 2.0 * self._phi
 
   @property
+  def phi_effective(self) -> np.ndarray:
       return self._phi_effective
 
   @property
