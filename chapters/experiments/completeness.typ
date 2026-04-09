@@ -2,6 +2,10 @@
 
 == Completeness Experiments <sec:completeness>
 
+The following experiments measure whether the verifier accepts the honest MoS prover and recovers a
+hypothesis with low error. We begin by defining what _completeness_ and _soundness_ mean in the
+context of our learning task.
+
 #definition(name: text[Interactive verification of $alpha$-agnostic learning])[
   Let $cal(F) subset.eq {0, 1}^(cal(X)_n)$ be a benchmark class. Let $frak(D)$ be a family of
   probability distributions over $cal(X)_n times {0, 1}$. Let $alpha gt.eq 1$. We say that $cal(F)$
@@ -52,7 +56,3 @@ the $2^(n + 1)$-dimensional statevector simulator and not by any protocol quanti
     curve shows wall-clock time, whose growth is dominated by the $2^(n + 1)$-dimensional
     statevector simulator in `mos/__init__.py`, not by any protocol-level cost.],
 ) <fig:scaling_1>
-
-=== Average-case performance <sec:completeness-average-case>
-
-=== $k$-Sparse verification <sec:completeness-k-sparse>
