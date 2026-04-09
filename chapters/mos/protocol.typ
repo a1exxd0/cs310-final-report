@@ -39,7 +39,7 @@ verification for quantum parity learning.
     $||tilde(phi.alt)||_0 lt.eq (64 b^2)/theta.alt^2$. If $P$ obtains an output that violates the
     $||dot||_0$ bound, then $P$ declares failure and the interaction aborts. Otherwise, $P$ sends
     the list $L = {s in {0, 1}^n: |tilde(phi.alt)(s) gt.eq theta.alt/2}$ to $V$.
-  + If $V$ recieves a list $L$ of length $|L| > (64 b^2)/theta.alt^2$, $V$ rejects the interaction.
+  + If $V$ receives a list $L$ of length $|L| > (64 b^2)/theta.alt^2$, $V$ rejects the interaction.
     Otherwise, $V$ uses $cal(O)((|L|^2 log ((|L|)/delta)) / epsilon^4)$ classical random examples
     from $cal(D)$ to obtain simultaneously $(epsilon^2/(16|L|))$-accurate estimates $hat(xi)(s)$ of
     $hat(phi.alt)(s)$ for all $s in L$ with success probability $gt.eq 1 - delta / 2$. For

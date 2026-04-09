@@ -2,7 +2,7 @@
 
 This report has presented an end-to-end implementation and empirical evaluation of the
 mixture-of-superpositions-based classical verification protocol for quantum parity learning
-introduced by Caro et al. @Caro_2023. To our knowledgement, this is the first systematic measurement
+introduced by Caro et al. @Caro_2023. To our knowledge, this is the first systematic measurement
 of the protocol's concrete behaviour, complementing its existing asymptotic guarantees.
 
 == Summary of Contributions <sec:conclusions-summary>
@@ -30,7 +30,7 @@ known bound.
 
 == Future Work <sec:conclusions-future-work>
 
-We group future direction by the limitation each addresses, in roughly decreasing order of impact on
+We group future directions by the limitation each addresses, in roughly decreasing order of impact on
 the conclusions this report can presently support.
 
 === Validation at analytic sample budgets
@@ -44,10 +44,10 @@ paper.
 === A formal treatment of per-gate depolarising noise
 
 Whilst Ma, Su, and Deng @Ma_2024 partially admit a solution to circuit noise, neither bound in their
-paper covers depolarizing noise inside the QFS circuit. A natural theoretical extension is to show
+paper covers depolarising noise inside the QFS circuit. A natural theoretical extension is to show
 that under gate noise, our empirically-observed uniform noise floor is tight, or identify a distinct
-scaling. It is worth acknowledging what Ma et al. @Ma_2024 do provide a more general algorithm which
-relaxes independence assumptions slightly but limit the probability of a given bit flip to some
+scaling. It is worth acknowledging that Ma et al. @Ma_2024 do provide a more general algorithm which
+relaxes independence assumptions slightly but limits the probability of a given bit flip to some
 parameter $eta$.
 
 === Execution on real quantum hardware

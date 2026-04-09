@@ -5,7 +5,7 @@ formal preconditions of Caro et al. @Caro_2023[Lemma 1] reproduces the relevant 
 to within sampling noise. The strongest such quantitative agreement comes from the label-flip noise
 sweep of @sec:robustness-label-flip. @Caro_2023[Lemma 6] predicts the conditional QFS mass of $s^*$
 is attenuated by exactly $(1 - 2 eta)^2$ under independent flips of rate $eta$. At every
-$eta lt 0.42$ this satisfies, with deviation rising monotnically with $eta$ as expected from
+$eta lt 0.42$ this satisfies, with deviation rising monotonically with $eta$ as expected from
 sampling variance on a vanishing signal. In the _empty list_ input case, it transitions sharply at
 $approx 0.447$, the root at which the acceptance margin $(1 - 2 eta)^2 - epsilon^2/8$ becomes
 negative.

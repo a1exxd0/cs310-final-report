@@ -2,7 +2,7 @@
 
 This chapter reports 7 experiments that evaluate the mixture-of-superpositions verification protocol
 of Caro et al. @Caro_2023. Each experiment tests a specific theorem, lemma, or corollary of the
-paper on a dedicated target class. All experiments were ran on the University of Warwick's DCS batch
+paper on a dedicated target class. All experiments were run on the University of Warwick's DCS batch
 compute system, specifically on the `tiger` node, with experiments supporting distributed trials and
 Protobuf-based result aggregation and processing.
 

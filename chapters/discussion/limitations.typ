@@ -12,5 +12,5 @@ a property of the simulator and not the protocol. Furthermore, the brute-force c
 construction required for @sec:robustness-gate-noise is exponential in $n$ for both time and gate
 count, so cannot extend past $n = 8$ without exceeding reasonable time limits.
 
-Finally, no experiment was ran on real quantum hardware, and it is a valid extension of this work to
+Finally, no experiment was run on real quantum hardware, and it is a valid extension of this work to
 do so.

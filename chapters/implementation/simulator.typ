@@ -213,9 +213,9 @@ $rho_cal(D)$ in the computational basis @Caro_2023.
   As claimed.
 ]
 
-To avoid overhead of quantum simulation, we can instead sample $x tilde U_n$, and
+To avoid the overhead of quantum simulation, we can instead sample $x tilde U_n$, and
 $y tilde "Bernoulli"(phi_("eff")(x))$ directly, which works on the same distribution, but without
-having to use a $2^((n+1))$-dimension state vector.
+having to use a $2^((n+1))$-dimensional state vector.
 
 #figure(
   caption: text[A singular sample $x tilde U_n$ and $y tilde "Bernoulli"(phi_("eff")(x))$.],
@@ -248,7 +248,7 @@ where $chi_s (x) = (-1)^(s dot x)$ and $phi.alt = 1 - 2 phi$:
 Then, we can calculate the exact Fourier coefficient at $s$ with:
 
 #figure(
-  caption: text[The fourier coefficient calculation for some specific $s$.],
+  caption: text[The Fourier coefficient calculation for some specific $s$.],
 )[
   ```py
   # mos/__init__.py:482-489
@@ -302,7 +302,7 @@ We provide a function `qfs_distribution` to calculate the full QFS distribution 
 
 === Sampling from `MoSState` <sec:sampling_from_mos_state>
 
-The package `mos/sampler.py` is the only place in the codebase of which performs Hadamard-basis
+The package `mos/sampler.py` is the only place in the codebase that performs Hadamard-basis
 measurements of a MoS state, depending only on `MoSState` from @app:mos. In the case of
 `Statevector`-based simulation, we sample an independent $f$ per "shot", and draw a single
 measurement outcome per $f$:

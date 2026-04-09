@@ -10,7 +10,7 @@ agnostic learning task @Haussler_1992. There are two canonical choices documente
   $cal(X) = {0, 1}^n$ and $f: {0, 1}^n -> {0, 1}$, an unknown boolean function. We denote the
   data-generating distribution as $cal(D) = (cal(U)_n, f)$.
 - In the _distributional-agnostic_ setting, with respect to uniformly random inputs, we no longer
-  assume a perfectly descriptive $f$. In other words we assume samples labelled $(x_i, y_i)$ are
+  assume a perfectly descriptive $f$. In other words, we assume samples labelled $(x_i, y_i)$ are
   drawn i.i.d. over some distribution $cal(D)$ over ${0, 1}^n times {0, 1}$ with uniform marginal
   over ${0, 1}^n$. We denote this as $cal(D) = (cal(U)_n, phi)$ where $phi$:
 
@@ -33,7 +33,7 @@ output, with success probability $gt.eq 1 - delta$ a hypothesis $h$ such that:
 In simpler words, the hypothesis is at most as incorrect as the best benchmark (by metric of
 accuracy) for any input $x$, multiplied by $alpha$ with some additive error margin $epsilon$.
 
-In quantum learning theory, a learner can have access the distribution $cal(D)$ with training data
+In quantum learning theory, a learner can have access to the distribution $cal(D)$ with training data
 canonically taken to consist of copies of the _quantum superposition example state_ @Bshouty_1995:
 
 #math.equation(numbering: "(1)", block: true)[
@@ -45,4 +45,4 @@ canonically taken to consist of copies of the _quantum superposition example sta
 Whilst the above data is at least as powerful as its classical counterpart (since we can simulate
 classical data via computational basis measurements), it is unknown how to use copies of
 $|phi.alt_cal(D) chevron.r$ to improve upon classical distributional-agnostic learning. Caro et al.
-@Caro_2023 present a new idea of _mixture-of-superpositions_ (MoS) to attempty to overcome this.
+@Caro_2023 present a new idea of _mixture-of-superpositions_ (MoS) to attempt to overcome this.
